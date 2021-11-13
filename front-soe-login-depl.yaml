@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-soe-login
+  labels:
+    app: front-soe-login
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front-soe-login
+  template:
+    metadata:
+      labels:
+        app: front-soe-login
+    spec:
+      containers:
+        - name: front-soe-login-container
+          image: senbar/front-soe-login:latest
+          ports:
+            - containerPort: 80
+              name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-soe-login
+spec:
+  type: ClusterIP
+  selector:
+    app: front-soe-login
+  ports:
+    - port: 80
+      targetPort: 80
