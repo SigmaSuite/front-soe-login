@@ -1,8 +1,8 @@
 {
   "name": "@Sigma/login",
   "scripts": {
-    "start": "webpack serve",
-    "start:standalone": "webpack serve --env standalone",
+    "start": "webpack serve --port 4203",
+    "start:standalone": "webpack serve --port 4203 --env standalone",
     "build": "concurrently npm:build:*",
     "build:webpack": "webpack --mode=production",
     "analyze": "webpack --mode=production --env analyze",
